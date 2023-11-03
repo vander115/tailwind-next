@@ -5,7 +5,16 @@ const config: Config = {
   theme: {
     extend: {
       gridTemplateColumns: {
-        app: 'minmax(18rem, 20rem) 1fr',
+        app: 'minmax(288px, 320px) 1fr',
+        form: 'minmax(120px, 280px) minmax(400px, 1fr) minmax(0, 240px)',
+      },
+      borderWidth: {
+        '6': '0.375rem',
+      },
+      colors: {
+        violet: {
+          25: '#fcfaff',
+        },
       },
     },
   },

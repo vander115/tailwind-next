@@ -1,4 +1,3 @@
-import { SearchIcon } from 'lucide-react'
 import { ComponentProps, InputHTMLAttributes } from 'react'
 
 type IInputProps = InputHTMLAttributes<HTMLInputElement>
@@ -15,19 +14,21 @@ function Control({ ...props }: ControlProps) {
   return (
     <input
       type="text"
-      className="flex-1 border-0 p-0 text-zinc-600 placeholder-zinc-400 outline-0"
-      placeholder="Search"
+      className="w-full flex-1 border-0 p-0 text-zinc-600 placeholder-zinc-400 outline-0"
       {...props}
     />
   )
 }
 
-function Input({ ...rest }: IInputProps) {
+type RootProps = ComponentProps<'div'>
+
+function Root({ ...props }: RootProps) {
   return (
-    <div className="mx-1 flex w-full items-center gap-2 rounded-lg border border-zinc-300 px-3 py-2 shadow-sm">
-      <SearchIcon className="h-5 w-5 text-zinc-500 " />
-    </div>
+    <div
+      className="flex w-full items-center gap-2 rounded-lg border border-zinc-300 px-3 py-2 shadow-sm"
+      {...props}
+    />
   )
 }
 
-export { Input, Prefix, Control }
+export { Root, Prefix, Control }
