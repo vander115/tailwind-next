@@ -1,10 +1,12 @@
-import { Mail } from 'lucide-react'
-
 import * as Input from '@/components/Input'
 import { SettingsTabs } from '@/components/SettingsTabs/SettingsTabs'
 import * as FileInput from '@/components/Form/FileInput'
 import { Select } from '@/components/Form/Select'
 import { SelectItem } from '@/components/Form/Select/SelectItem'
+import { TextArea } from '@/components/Form/TextArea'
+import { Button } from '@/components/Button'
+import { Mail } from 'lucide-react'
+import { TextButtons } from '@/components/Editor/TextButtons'
 
 export default function Home() {
   return (
@@ -22,27 +24,20 @@ export default function Home() {
             </span>
           </div>
           <div className="flex items-start gap-2 ">
-            <button
-              type="button"
-              className="rounded-lg border border-zinc-300 px-4 py-2 text-sm font-semibold text-zinc-700 shadow-sm hover:bg-zinc-50"
-            >
+            <Button variant="outline" type="button">
               Cancel
-            </button>
-            <button
-              type="submit"
-              form="settings"
-              className="rounded-lg  bg-violet-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-violet-700"
-            >
+            </Button>
+            <Button variant="primary" type="submit" form="settings">
               Save
-            </button>
+            </Button>
           </div>
         </div>
         <form
           action=""
           id="settings"
-          className="mt-6 flex w-full flex-col gap-5 divide-y divide-zinc-200"
+          className="flex w-full flex-col gap-5 divide-y divide-zinc-200"
         >
-          <div className="grid-cols-form grid gap-3">
+          <div className="grid-cols-form grid gap-3 pt-5 ">
             <label
               htmlFor="firstName"
               className="text-sm font-medium text-zinc-700"
@@ -141,7 +136,19 @@ export default function Home() {
               </span>
             </label>
             <div className="space-y-3">
-              <div className="grid-col-2 grid gap-3"></div>
+              <div className="grid grid-cols-2 gap-3">
+                <Select placeholder="Select a text type" defaultValue="normal">
+                  <SelectItem text="Normal Text" value="normal" />
+                  <SelectItem text="Markdown" value="md" />
+                </Select>
+
+                <TextButtons />
+              </div>
+
+              <TextArea
+                id="bio"
+                defaultValue="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi repellendus vel porro commodi magnam autem nostrum voluptas hic est officiis nisi odio ducimus impedit sapiente laboriosam iure, dolor ipsum aperiam?"
+              />
             </div>
           </div>
 
@@ -165,18 +172,12 @@ export default function Home() {
           </div>
 
           <div className="flex items-center justify-end gap-2 pt-5">
-            <button
-              type="button"
-              className="rounded-lg border border-zinc-300 px-4 py-2 text-sm font-semibold text-zinc-700 shadow-sm hover:bg-zinc-50"
-            >
+            <Button variant="outline" type="button">
               Cancel
-            </button>
-            <button
-              type="submit"
-              className="rounded-lg  bg-violet-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-violet-700"
-            >
+            </Button>
+            <Button variant="primary" type="submit" form="settings">
               Save
-            </button>
+            </Button>
           </div>
         </form>
       </div>

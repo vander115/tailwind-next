@@ -19,7 +19,7 @@ export function Control({ multiple = false, ...props }: ControlProps) {
   return (
     <input
       type="file"
-      className="sr-only"
+      className="sr-only outline-none"
       id={id}
       multiple={multiple}
       onChange={handleFileSelected}
